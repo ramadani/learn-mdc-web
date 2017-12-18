@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button } from 'rmwc/Button';
 
 class Hello extends Component {
   constructor(props) {
@@ -18,10 +19,9 @@ class Hello extends Component {
         <div className="mdc-layout-grid__inner">
           <div className="mdc-layout-grid__cell">
             <h1 className="mdc-typography--display1">Hello, {this.state.name}</h1>
-            <button type="button" className="mdc-button mdc-button--raised"
-              onClick={() => this.handlePressMe()}>
+            <Button raised onClick={() => this.handlePressMe()}>
               Press Me
-            </button>
+            </Button>
           </div>
         </div>
       </div>
