@@ -1,18 +1,47 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Button } from 'rmwc/Button';
+import {
+  Toolbar,
+  ToolbarRow,
+  ToolbarTitle,
+  ToolbarSection,
+  ToolbarMenuIcon
+} from 'rmwc/Toolbar';
 
 class App extends Component {
-  render() {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: 'World'
+    }
+  }
+
+  handlePressMe() {
+    this.setState({ name: 'Universe' });
+  }
+
+  render () {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <Toolbar fixed>
+          <ToolbarRow>
+            <ToolbarSection alignStart>
+              <ToolbarMenuIcon use="menu" />
+              <ToolbarTitle>Carenusa</ToolbarTitle>
+            </ToolbarSection>
+          </ToolbarRow>
+        </Toolbar>
+
+        <div className="mdc-layout-grid">
+          <div className="mdc-layout-grid__inner">
+            <div className="mdc-layout-grid__cell">
+              <h1 className="mdc-typography--display1">Hello, {this.state.name}</h1>
+              <Button raised onClick={() => this.handlePressMe()}>
+                Press Me
+              </Button>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
