@@ -29,7 +29,7 @@ class App extends Component {
   render () {
     return (
       <div>
-        <Toolbar>
+        <Toolbar waterfall>
           <ToolbarRow>
             <ToolbarSection alignStart>
               <ToolbarMenuIcon use="menu" />

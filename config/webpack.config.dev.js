@@ -2,6 +2,7 @@
 
 const autoprefixer = require('autoprefixer');
 const path = require('path');
+const glob = require('glob');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
@@ -196,7 +197,10 @@ module.exports = {
             }, {
                 loader: "css-loader" // translates CSS into CommonJS
             }, {
-                loader: "sass-loader" // compiles Sass to CSS
+                loader: "sass-loader", // compiles Sass to CSS
+                options: {
+                  includePaths: ['node_modules']
+                },
             }]
           },
           // "file" loader makes sure those assets get served by WebpackDevServer.

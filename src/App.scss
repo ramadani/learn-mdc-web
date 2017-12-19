@@ -1,6 +1,8 @@
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
-@import url("../node_modules/material-components-web/dist/material-components-web.css");
+$mdc-theme-primary: #fc595e;
+$mdc-theme-secondary: #16cd8b;
+$mdc-theme-background: #fff;
 
-body {
-  margin: 0;
-}
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import "~material-components-web/material-components-web";
+
+body { margin: 0; }
