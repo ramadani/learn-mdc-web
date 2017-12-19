@@ -1,49 +1,44 @@
 import React, { Component } from 'react';
 import {
   Toolbar,
+  ToolbarFixedAdjust,
   ToolbarRow,
   ToolbarTitle,
   ToolbarSection,
   ToolbarMenuIcon
 } from 'rmwc/Toolbar';
-import { Grid, GridCell } from 'rmwc/Grid';
+import { Grid } from 'rmwc/Grid';
+// eslint-disable-next-line
 import { Typography } from 'rmwc/Typography';
+// eslint-disable-next-line
 import { Button } from 'rmwc/Button';
+import CardCell from './CardCell';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: 'World',
-      isPressed: false,
+      title: 'Nyunmor'
     }
   }
 
-  handlePressMe() {
-    const isPressed = !this.state.isPressed;
-    const name = isPressed ? 'Universe' : 'World';
-
-    this.setState({ name, isPressed });
-  }
-
   render () {
+    const cards = [...Array(10).keys()].map(number =>
+      <CardCell key={number} />
+    );
+
     return (
       <div>
-        <Toolbar waterfall>
+        <Toolbar fixed>
           <ToolbarRow>
             <ToolbarSection alignStart>
               <ToolbarMenuIcon use="menu" />
-              <ToolbarTitle>Carenusa</ToolbarTitle>
+              <ToolbarTitle>{this.state.title}</ToolbarTitle>
             </ToolbarSection>
           </ToolbarRow>
         </Toolbar>
-
-        <Grid>
-          <GridCell phone="12">
-            <Typography use="headline" tag="div">Hello, {this.state.name}</Typography>
-            <Button raised onClick={() => this.handlePressMe()}>Press Me</Button>
-          </GridCell>
-        </Grid>
+        <ToolbarFixedAdjust />
+        <Grid>{cards}</Grid>
       </div>
     );
   }
